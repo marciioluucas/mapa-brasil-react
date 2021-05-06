@@ -1,4 +1,4 @@
-export default {
+const estados =  {
 	AC: {
 		sigla: 'AC',
 		nome: 'Acre',
@@ -163,3 +163,5 @@ export default {
 		transform: 'matrix(1 0 0 1 395 245)'
 	},
 }
+
+export default estados;

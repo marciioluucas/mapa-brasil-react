@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+
 import Brasil from "./componentes/Brasil";
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
       {/*    Learn React*/}
       {/*  </a>*/}
       {/*</header>*/}
-      <Brasil backgroundColor={'red'} activeColor={'blue'}/>
+      <Brasil backgroundColor={'#6610F2'} activeColor={'#F68DB5'}/>
     </div>
   );
 }

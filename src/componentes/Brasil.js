@@ -17,8 +17,12 @@ function Brasil({backgroundColor, onClick, activeColor, strokeColor, labelColor,
 
 	function handleClick(item) {
 		const {sigla, nome} = item;
+		let candidato = item;
 		onClick && onClick({sigla, nome})
-		setActive(item)
+
+		if (candidato === active) candidato = null;
+
+		setActive(candidato)
 	}
 
 	return <div>
@@ -26,7 +30,7 @@ function Brasil({backgroundColor, onClick, activeColor, strokeColor, labelColor,
 			version='1.1'
 			x='0px'
 			y='0px'
-			viewBox="-74.008595 5.275696 -34.789914 -33.743888"
+			// viewBox="-74.008595 5.275696 -34.789914 -33.743888"
 			width={getWidth()}
 			height={getHeight()}
 		>
@@ -37,6 +41,7 @@ function Brasil({backgroundColor, onClick, activeColor, strokeColor, labelColor,
 					return (
 						<Estado
 							estado={item}
+							key={key}
 							activeColor={activeColor}
 							backgroundColor={backgroundColor}
 							strokeColor={strokeColor}
@@ -54,13 +59,17 @@ function Brasil({backgroundColor, onClick, activeColor, strokeColor, labelColor,
 function isValidColor(color) {
 	const s = new Option().style;
 	s.color = color;
-	console.log(s.color === color)
-	return s.color === color;
+
+	const test1 = s.color === color;
+	const test2 = /^#[0-9A-F]{6}$/i.test(color);
+
+	return test1 === true || test2 === true;
 }
 
 function color(props, propName, componentName) {
 	const prop = props[propName];
 	if (!!!prop) return;
+
 	if (!isValidColor(prop))
 		return new Error(`O componente ${componentName} requer uma cor válida para a propriedade ${propName}`)
 }
