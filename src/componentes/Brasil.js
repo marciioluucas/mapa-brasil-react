@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Svg} from './styles';
-import estados from "../estados";
+import estados from "../utils/estados";
 import Estado from "./Estado";
 
 function Brasil({backgroundColor, onClick, activeColor, strokeColor, labelColor, width, height}) {
